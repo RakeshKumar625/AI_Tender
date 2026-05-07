@@ -14,7 +14,7 @@
 
 **Revolutionizing Tender Evaluation with AI for CRPF Procurement**
 
-[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [🎯 Features](#-features) • [🛠️ Tech Stack](#-tech-stack)
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [🎯 Key Features](#-key-features) • [🛠️ Technology Stack](#-technology-stack)
 
 ---
 
