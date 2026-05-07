@@ -41,5 +41,7 @@ app.include_router(report.router, prefix="/api/report", tags=["Report"])
 app.include_router(audit.router, prefix="/api/audit", tags=["Audit"])
 
 # Serve built frontend assets when deploying as a single combined app.
-# `frontend` build output should be copied into `backend/static`.
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+# Render deploys this repo as a backend-only service, so `static/` may not exist.
+static_dir = "static"
+if os.path.isdir(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
