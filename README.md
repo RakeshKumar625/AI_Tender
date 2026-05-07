@@ -207,14 +207,41 @@ sequenceDiagram
 
 <div align="center">
 
-### Admin Dashboard
-*Coming Soon - Tender Management Interface*
+### 🔐 Login & Portal Selection
+**CRPF Procurement System - Secure Access Portal**
 
-### Bidder Portal
-*Coming Soon - Document Upload & Status Tracking*
+The system features a unified login gateway with role-based portal selection. Users can seamlessly choose between:
+- **Admin Portal** - For Procurement Officers and System Administrators to manage tenders, review evaluations, and monitor audits
+- **Bidder Portal** - For registered vendors and companies to submit documents, track eligibility, and manage profiles
 
-### AI Evaluation Results
-*Coming Soon - Automated Qualification Assessment*
+---
+
+### 📊 Bidder Dashboard
+**Tender Submissions & Status Tracking**
+
+The Bidder Portal provides a comprehensive dashboard showing:
+- 📈 **Performance Summary** - Total bid value (₹6.1 Cr), Success rate (76%)
+- 📋 **Active Submissions** - Track ongoing bids across multiple tenders
+- ✅ **Approval Status** - 10 approved tenders, 3 rejected, 1 pending review
+- 🎯 **Upcoming Tenders** - View new opportunities with deadlines and bid amounts
+- 📊 **Bidder Rankings** - Real-time recognition (Top-rated bidder badge)
+- 🕐 **Recent Activity** - Submission history with current status updates
+
+---
+
+### ⚖️ AI Evaluation Dashboard  
+**Explainable AI Decision Support System**
+
+The Admin Evaluation interface leverages AI to provide:
+- 🤖 **Automated Assessments** - AI-powered eligibility evaluation for bidders
+- 📊 **Detailed Evidence Mapping** - Visual breakdown of evaluation criteria matching
+- 🎯 **Confidence Scores** - Transparent scoring with explainability
+- 🏆 **Status Categories**:
+  - 🟢 **Eligible** - Meets all mandatory criteria (3/3 passed)
+  - 🟡 **Needs Review** - Borderline cases requiring manual assessment (2/3 passed)
+  - 🔴 **Not Eligible** - Does not meet mandatory requirements (2/3 passed)
+- 👀 **Manual Review Option** - Seamless escalation to procurement officers for edge cases
+- 📈 **Tender Context** - Associated tender details and specific criteria requirements
 
 </div>
 
