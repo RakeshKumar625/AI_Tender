@@ -8,8 +8,9 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, allowedRoles }) => {
-  const { isAuthenticated, isLoading, user } = useAuth();
+  const { isAuthenticated, isLoading, user, role } = useAuth();
   const location = useLocation();
+  const currentRole = user?.role || role;
 
   if (isLoading) {
     return (
@@ -23,9 +24,9 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, allowe
     return <Navigate to="/auth/selection" state={{ from: location }} replace />;
   }
 
-  if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+  if (allowedRoles && currentRole && !allowedRoles.includes(currentRole)) {
     // Redirect to their respective dashboards if they try to access an unauthorized route
-    if (user.role === 'admin') {
+    if (currentRole === 'admin') {
       return <Navigate to="/admin/dashboard" replace />;
     } else {
       return <Navigate to="/bidder/dashboard" replace />;

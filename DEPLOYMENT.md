@@ -109,11 +109,13 @@ Update `frontend/package.json` build script:
 
 ### 2.2 Update API Endpoint
 
-In `frontend/src/context/AuthContext.tsx`, update API base URL:
+In `frontend/src/context/AuthContext.tsx`, the frontend uses Vite environment variables:
 
 ```typescript
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 ```
+
+Set `VITE_API_URL` in your frontend `.env` or hosting environment to point to the production backend.
 
 ---
 
@@ -232,12 +234,14 @@ mkdir -p backend/static
 cp -r frontend/dist/* backend/static/
 ```
 
-3. Update `backend/main.py` to serve static files:
+3. Update `backend/main.py` to serve static files (already configured in this repo):
 ```python
 from fastapi.staticfiles import StaticFiles
 
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
 ```
+
+> Note: The repository Dockerfile now performs a multi-stage build. It builds the frontend, copies `frontend/dist` into `backend/static`, and then starts the Python backend automatically.
 
 ---
 
@@ -314,7 +318,34 @@ heroku addons:create heroku-postgresql:hobby-dev
 
 ---
 
-## 📊 Step 7: Monitoring & Maintenance
+## � Railway Deployment (Free Alternative)
+
+Railway can deploy this repo using the root `Dockerfile` added to the project.
+
+### 1. Create a new Railway project
+- Sign into Railway at https://railway.app
+- Create a new project and link your GitHub repository
+
+### 2. Use the existing root Dockerfile
+Railway will detect `Dockerfile` at the repository root and build the backend service from the `backend` folder.
+
+### 3. Configure Railway environment variables
+- `SECRET_KEY` = strong random key
+- `ALLOWED_ORIGINS` = Railway backend URL (for example `https://<your-service>.railway.app`)
+- `ENVIRONMENT` = `production`
+- `DATABASE_URL` = provided by Railway Postgres plugin
+
+### 4. Add a PostgreSQL plugin in Railway
+- Add `PostgreSQL` from Railway plugins
+- Railway will provide `DATABASE_URL` automatically
+
+### 5. Deploy
+- Trigger a new deployment in Railway
+- If the build succeeds, Railway will start the backend on the assigned port
+
+---
+
+## �📊 Step 7: Monitoring & Maintenance
 
 ### View Logs
 

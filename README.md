@@ -169,6 +169,23 @@ python create_admin.py  # Create admin user
 python seed_companies.py  # Optional: Seed sample data
 ```
 
+### 5. Docker Compose Local Development
+```bash
+# Run the full development stack with frontend and backend
+docker compose up --build
+```
+
+Then access:
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+
+```bash
+# Stop and remove the containers when finished
+docker compose down
+```
+
+> The Compose setup uses `frontend/Dockerfile.dev` and `backend/Dockerfile.dev` for live development.
+
 ###  Access the Application
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:8000
@@ -265,7 +282,36 @@ git push heroku main
 heroku run "cd backend && python create_admin.py"
 ```
 
-#### 🐳 Docker + Linux Server
+#### 🚀 Vercel (Frontend Hosting)
+- Ideal for static frontend deployment with Vite
+- Includes `vercel.json` for frontend build configuration
+- Set `VITE_API_URL` in Vercel Environment Variables to your backend URL
+- Deploy from GitHub and choose this repo; Vercel will build the React app from `frontend/package.json`
+- After deployment, the frontend will call backend APIs at the configured `VITE_API_URL`
+
+#### ⚙️ Render (Backend Hosting)
+- Recommended for hosting the FastAPI backend
+- Uses `render.yaml` for service configuration
+- Connect your GitHub repo in Render and deploy the `main` branch
+- Configure Render environment variables:
+  - `SECRET_KEY`
+  - `DATABASE_URL` (prefer PostgreSQL for production)
+  - `ALLOWED_ORIGINS` (include your Vercel URL)
+  - `ENVIRONMENT=production`
+- Render will run `pip install -r backend/requirements.txt` and start:
+  `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
+- Copy the Render backend URL into Vercel as `VITE_API_URL`
+
+#### � Full Stack: Vercel frontend + Render backend
+1. Push the repository to GitHub.
+2. Create a new Render web service and connect the repo.
+3. Deploy the `main` branch using `render.yaml`.
+4. Create a new Vercel project and connect the same repo.
+5. Add `VITE_API_URL` in Vercel environment variables with your Render backend URL.
+6. Ensure `ALLOWED_ORIGINS` in Render includes your Vercel URL.
+7. Open the Vercel frontend URL and verify API connectivity.
+
+#### �🐳 Docker + Linux Server
 - Full control and customization
 - Suitable for on-premise deployment
 - Requires Linux VPS/dedicated server
@@ -305,6 +351,8 @@ heroku run "cd backend && python create_admin.py"
 | `.env.example` | Environment variable template |
 | `DEPLOYMENT.md` | Comprehensive deployment guide |
 | `HEROKU_QUICK_START.md` | Quick deployment for Heroku |
+| `render.yaml` | Render backend deployment manifest |
+| `vercel.json` | Vercel frontend static build config |
 | `backend/main.py` | Production-ready CORS settings |
 | `backend/database.py` | Environment-aware database config |
 

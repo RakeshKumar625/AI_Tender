@@ -64,7 +64,7 @@ heroku config:set SECRET_KEY="your-generated-key"
 heroku config:set ALLOWED_ORIGINS="https://your-app-name.herokuapp.com"
 heroku config:set ENVIRONMENT="production"
 ```
-
+If you deploy the frontend separately, set `VITE_API_URL` in your frontend host to your backend URL.
 ---
 
 ## Step 5: Deploy Application

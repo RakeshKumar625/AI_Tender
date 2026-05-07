@@ -10,6 +10,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
+  role: string | null;
   token: string | null;
   login: (token: string, role: string) => void;
   logout: () => void;
@@ -21,17 +22,22 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [role, setRole] = useState<string | null>(localStorage.getItem('role'));
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
 
   // Only show the loading spinner if we have an existing token to validate on mount.
-  // For fresh logins, isAuthenticated flips immediately via token, so no spinner needed.
+  // Fresh logins also set loading while /me is fetched.
   const [isLoading, setIsLoading] = useState<boolean>(!!localStorage.getItem('token'));
 
   useEffect(() => {
     if (token) {
+      setIsLoading(true);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       fetchUser();
     } else {
+      setRole(null);
+      setUser(null);
+      delete axios.defaults.headers.common['Authorization'];
       setIsLoading(false);
     }
   }, [token]);
@@ -41,6 +47,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
       const response = await axios.get(`${apiBaseUrl}/api/auth/me`);
       setUser(response.data);
+      setRole(response.data.role ?? localStorage.getItem('role'));
     } catch (error) {
       console.error('Failed to fetch user', error);
       logout();
@@ -52,6 +59,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = (newToken: string, role: string) => {
     localStorage.setItem('token', newToken);
     localStorage.setItem('role', role);
+    setRole(role);
+    setIsLoading(true);
     // Set axios header immediately so the /me call in the triggered useEffect
     // has the correct Authorization header right away.
     axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
@@ -62,6 +71,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     setToken(null);
+    setRole(null);
     setUser(null);
     setIsLoading(false);
     delete axios.defaults.headers.common['Authorization'];
@@ -71,6 +81,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     <AuthContext.Provider
       value={{
         user,
+        role,
         token,
         login,
         logout,

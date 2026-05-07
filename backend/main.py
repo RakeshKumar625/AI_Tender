@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from database import engine, Base
 import models
 import os
@@ -10,10 +11,14 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="CRPF Tender Evaluation System", version="1.0.0")
 
 # CORS - Support both local development and production
-allowed_origins = os.getenv(
-    "ALLOWED_ORIGINS",
-    "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174"
-).split(",")
+allowed_origins = [
+    origin.strip()
+    for origin in os.getenv(
+        "ALLOWED_ORIGINS",
+        "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174"
+    ).split(",")
+    if origin.strip()
+]
 
 app.add_middleware(
     CORSMiddleware,
@@ -35,6 +40,6 @@ app.include_router(review.router, prefix="/api/review", tags=["Review"])
 app.include_router(report.router, prefix="/api/report", tags=["Report"])
 app.include_router(audit.router, prefix="/api/audit", tags=["Audit"])
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to CRPF Tender Evaluation System API"}
+# Serve built frontend assets when deploying as a single combined app.
+# `frontend` build output should be copied into `backend/static`.
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
