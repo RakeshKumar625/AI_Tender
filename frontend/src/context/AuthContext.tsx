@@ -38,7 +38,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/auth/me');
+      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+      const response = await axios.get(`${apiBaseUrl}/api/auth/me`);
       setUser(response.data);
     } catch (error) {
       console.error('Failed to fetch user', error);
