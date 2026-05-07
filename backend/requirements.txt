@@ -1,17 +1,10 @@
-# fastapi
-# uvicorn
-# sqlalchemy
-# psycopg2-binary
-# pydantic
-# paddlepaddle
-# paddleocr
-# pytesseract
-# spacy
-# sentence-transformers
-# pdfplumber
-# PyMuPDF
-# python-docx
-# python-multipart
-# passlib[bcrypt]
-# python-jose[cryptography]
-# email-validator
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+python-multipart
+passlib[bcrypt]
+python-jose[cryptography]
+email-validator
+pytz
