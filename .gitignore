@@ -125,6 +125,11 @@ build/
 .DS_Store
 Thumbs.db
 
+# Local deployment artifacts
+Procfile.bak
+_procfile_check.txt
+heroku-x64.exe
+
 # Database
 *.db
 *.sqlite
