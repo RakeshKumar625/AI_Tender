@@ -20,7 +20,7 @@
 
 </div>
 
-## ✨ Overview
+##  Overview
 
 Welcome to the **AI Tender Evaluation System** - an intelligent, automated solution designed specifically for the **Central Reserve Police Force (CRPF)** procurement processes. This cutting-edge platform leverages advanced **AI/ML technologies** to transform traditional manual tender evaluation into a streamlined, accurate, and transparent digital workflow.
 
@@ -28,29 +28,29 @@ Welcome to the **AI Tender Evaluation System** - an intelligent, automated solut
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
-### 🤖 AI-Powered Intelligence
-- **🖼️ Advanced OCR**: Multi-engine text extraction from PDFs, DOCX, and images using PaddleOCR + Tesseract
-- **🧠 NLP Processing**: Intelligent document analysis with spaCy and sentence transformers
-- **⚡ Automated Evaluation**: Smart qualification assessment against complex criteria
-- **🎯 Precision Matching**: Context-aware evidence extraction and validation
+###  AI-Powered Intelligence
+- ** Advanced OCR**: Multi-engine text extraction from PDFs, DOCX, and images using PaddleOCR + Tesseract
+- ** NLP Processing**: Intelligent document analysis with spaCy and sentence transformers
+- ** Automated Evaluation**: Smart qualification assessment against complex criteria
+- ** Precision Matching**: Context-aware evidence extraction and validation
 
-### 👥 Multi-Role Architecture
-- **👨‍💼 Admin Dashboard**: Complete tender lifecycle management and oversight
-- **🏢 Bidder Portal**: Seamless registration, document submission, and status tracking
-- **🔄 Real-time Updates**: Live status monitoring and notification system
+###  Multi-Role Architecture
+- ** Admin Dashboard**: Complete tender lifecycle management and oversight
+- ** Bidder Portal**: Seamless registration, document submission, and status tracking
+- ** Real-time Updates**: Live status monitoring and notification system
 
-### 🔒 Enterprise-Grade Security
-- **🛡️ Role-Based Access**: Granular permissions for admins and bidders
-- **🔐 JWT Authentication**: Secure, stateless authentication system
-- **📊 Audit Trail**: Comprehensive activity logging and compliance tracking
-- **👀 Manual Review**: Human oversight for complex evaluation cases
+###  Enterprise-Grade Security
+- ** Role-Based Access**: Granular permissions for admins and bidders
+- ** JWT Authentication**: Secure, stateless authentication system
+- ** Audit Trail**: Comprehensive activity logging and compliance tracking
+- ** Manual Review**: Human oversight for complex evaluation cases
 
-### 📊 Analytics & Reporting
-- **📈 Performance Metrics**: Detailed evaluation statistics and insights
-- **📋 Custom Reports**: Flexible reporting for procurement analysis
-- **🎨 Data Visualization**: Interactive charts and dashboards
+###  Analytics & Reporting
+- ** Performance Metrics**: Detailed evaluation statistics and insights
+- ** Custom Reports**: Flexible reporting for procurement analysis
+- ** Data Visualization**: Interactive charts and dashboards
 
 ---
 
@@ -96,37 +96,37 @@ graph TB
 ```
 🗂️ AI_Tender/
 ├── 🔧 backend/                    # FastAPI Backend
-│   ├── 🛣️ routers/               # API Endpoints
-│   │   ├── 🔐 auth.py            # Authentication
-│   │   ├── 📤 upload.py          # File Upload
-│   │   ├── 🔍 extract.py         # Document Processing
-│   │   ├── ⚖️ evaluate.py        # AI Evaluation
-│   │   └── 📊 report.py          # Analytics
-│   ├── 🗃️ models.py              # Database Models
-│   ├── 🔑 auth.py                # Auth Logic
-│   ├── 💾 database.py            # DB Config
-│   └── 📦 requirements.txt       # Dependencies
-├── 🎨 frontend/                   # React Frontend
-│   ├── 📱 src/
-│   │   ├── 🧩 components/        # UI Components
-│   │   ├── 📄 pages/            # Page Components
-│   │   ├── 🔄 context/          # State Management
-│   │   └── 🚀 App.tsx           # Main App
-│   └── 📦 package.json          # Dependencies
-├── 📋 README.md                  # Documentation
-└── 🚫 .gitignore                # Git Ignore Rules
+│   ├──  routers/               # API Endpoints
+│   │   ├──  auth.py            # Authentication
+│   │   ├──  upload.py          # File Upload
+│   │   ├──  extract.py         # Document Processing
+│   │   ├──  evaluate.py        # AI Evaluation
+│   │   └──  report.py          # Analytics
+│   ├──  models.py              # Database Models
+│   ├──  auth.py                # Auth Logic
+│   ├──  database.py            # DB Config
+│   └──  requirements.txt       # Dependencies
+├──  frontend/                   # React Frontend
+│   ├──  src/
+│   │   ├──  components/        # UI Components
+│   │   ├──  pages/            # Page Components
+│   │   ├──  context/          # State Management
+│   │   └──  App.tsx           # Main App
+│   └──  package.json          # Dependencies
+├──  README.md                  # Documentation
+└──  .gitignore                # Git Ignore Rules
 ```
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
-### 📋 Prerequisites
+###  Prerequisites
 - ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python) Python 3.11 or higher
 - ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat&logo=node.js) Node.js 18 or higher
 - ![Git](https://img.shields.io/badge/Git-2.30+-F05032?style=flat&logo=git) Git for version control
 
-### ⚡ Installation & Setup
+###  Installation & Setup
 
 #### 1. Clone the Repository
 ```bash
@@ -169,14 +169,14 @@ python create_admin.py  # Create admin user
 python seed_companies.py  # Optional: Seed sample data
 ```
 
-### 🌐 Access the Application
+###  Access the Application
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 ### API Reference
 Once the backend is running, explore the interactive API documentation:
@@ -203,7 +203,7 @@ sequenceDiagram
 
 ---
 
-## 🎬 Demo & Screenshots
+##  Demo & Screenshots
 
 <div align="center">
 
@@ -220,24 +220,24 @@ sequenceDiagram
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 ### Development Workflow
-1. 🍴 **Fork** the repository
-2. 🌿 **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. 💻 **Develop** your feature
-4. ✅ **Test** thoroughly
-5. 📝 **Commit** changes: `git commit -m 'Add amazing feature'`
-6. 🚀 **Push** to branch: `git push origin feature/amazing-feature`
-7. 🔄 **Open** a Pull Request
+1.  **Fork** the repository
+2.  **Create** a feature branch: `git checkout -b feature/amazing-feature`
+3.  **Develop** your feature
+4.  **Test** thoroughly
+5.  **Commit** changes: `git commit -m 'Add amazing feature'`
+6.  **Push** to branch: `git push origin feature/amazing-feature`
+7.  **Open** a Pull Request
 
 ### Code Standards
-- 🔍 **Linting**: ESLint for frontend, Black for backend
-- 🧪 **Testing**: Write tests for new features
-- 📚 **Documentation**: Update docs for API changes
-- 🎯 **Commits**: Use conventional commit messages
+-  **Linting**: ESLint for frontend, Black for backend
+-  **Testing**: Write tests for new features
+-  **Documentation**: Update docs for API changes
+-  **Commits**: Use conventional commit messages
 
 ---
 
@@ -249,7 +249,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 📞 Contact & Support
+##  Contact & Support
 
 <div align="center">
 
@@ -263,8 +263,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**⭐ Star this repository if you find it useful!**
+** Star this repository if you find it useful!**
 
-*Made with ❤️ for efficient and transparent procurement processes*
+*Made with for efficient and transparent procurement processes*
 
 </div>
