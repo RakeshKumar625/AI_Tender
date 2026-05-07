@@ -14,7 +14,7 @@
 
 **Revolutionizing Tender Evaluation with AI for CRPF Procurement**
 
-[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [🎯 Key Features](#-key-features) • [🛠️ Technology Stack](#-technology-stack)
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [🎯 Key Features](#-key-features) • [🛠️ Technology Stack](#-technology-stack) • [🌐 Deployment](#-deployment)
 
 ---
 
@@ -246,7 +246,80 @@ The Admin Evaluation interface leverages AI to provide:
 </div>
 
 ---
+## 🌐 Deployment
 
+### Production Deployment Options
+
+The AI Tender Evaluation System is ready for production deployment on multiple platforms:
+
+#### ☁️ Heroku (Recommended for Quick Start)
+- **Easiest option** for rapid deployment
+- Free tier available for testing
+- One-click deployment from GitHub
+- See [HEROKU_QUICK_START.md](HEROKU_QUICK_START.md) for detailed instructions
+
+**Quick Deploy:**
+```bash
+heroku create your-app-name
+git push heroku main
+heroku run "cd backend && python create_admin.py"
+```
+
+#### 🐳 Docker + Linux Server
+- Full control and customization
+- Suitable for on-premise deployment
+- Requires Linux VPS/dedicated server
+- See [DEPLOYMENT.md](DEPLOYMENT.md) for complete guide
+
+#### 🏢 Cloud Platforms
+- **AWS EC2** - Scalable compute instances
+- **Azure App Service** - Enterprise features
+- **Google Cloud Run** - Serverless deployment
+- **Railway/Render** - Modern alternatives to Heroku
+
+### Deployment Features
+
+✅ **Production-Ready Configuration**
+- Environment variable support for all configurations
+- Dynamic CORS configuration for any domain
+- Database abstraction (SQLite/PostgreSQL)
+- Secure JWT authentication
+- Comprehensive logging and monitoring
+
+✅ **Easy Database Migration**
+- Default SQLite for quick start
+- PostgreSQL support built-in
+- Automated schema creation
+
+✅ **Continuous Integration Ready**
+- GitHub Actions compatible
+- Automated testing hooks
+- Pre-deployment validation
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `Procfile` | Heroku process configuration |
+| `runtime.txt` | Python version specification |
+| `.env.example` | Environment variable template |
+| `DEPLOYMENT.md` | Comprehensive deployment guide |
+| `HEROKU_QUICK_START.md` | Quick deployment for Heroku |
+| `backend/main.py` | Production-ready CORS settings |
+| `backend/database.py` | Environment-aware database config |
+
+### Next Steps
+
+1. **Choose your deployment platform** from options above
+2. **Follow the appropriate guide**:
+   - Quick Start: `HEROKU_QUICK_START.md`
+   - Detailed: `DEPLOYMENT.md`
+3. **Set up environment variables** for production
+4. **Initialize database** on deployment
+5. **Monitor application** logs and performance
+6. **Set up custom domain** (optional)
+
+---
 ##  Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
